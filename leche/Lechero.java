@@ -24,8 +24,8 @@ public class Lechero {
     private final Map<Integer, Productor> productores;
 
     /**
-     * Promedio global histórico de botellas entregadas por un productor en la
-     * compañía
+     * Promedio global histÃ³rico de botellas entregadas por un productor en la
+     * compaÃ±Ã­a
      */
     private double PGBE;
 
@@ -192,8 +192,8 @@ public class Lechero {
     }
 
     /**
-     * Actualiza el promedio histórico de botellas entregadas por un productor
-     * en la compañía
+     * Actualiza el promedio histÃ³rico de botellas entregadas por un productor
+     * en la compaÃ±Ã­a
      *
      * @param pgbe
      */
@@ -218,49 +218,13 @@ public class Lechero {
             opcion = -1;
         }
         if (opcion == -1 || (opcion < min || opcion > max)) {
-            System.out.println("Opción incorrecta. Vuelva a intentarlo");
+            System.out.println("OpciÃ³n incorrecta. Vuelva a intentarlo");
             opcion = readOpcion(message, min, max);
         }
         return opcion;
     }
 
     public static void main(String[] args) {
-
-//        String[] promotions = {
-//            "PS0091253",
-//            "PS0077672",
-//            "PS0093314",
-//            "PS0093311",
-//            "PS0094681",
-//            "PS0094127",
-//            "PS0094126",
-//            "PS0091999",
-//            "PS0081485",
-//            "PS0085909",
-//            "PS0091953",
-//            "PS0092410",
-//            "PS0092619",
-//            "PS0092411",
-//            "PS0093819",
-//            "PS0093817",
-//            "PS0093813",
-//            "PS0093811",
-//            "PS0094264",
-//            "PS0092803",
-//            "PS0093643",
-//            "PS0091577",
-//            "PS0091860",
-//            "PS0090269",
-//            "PS0093309",
-//            "PS0093303",
-//            "PS0081542",
-//            "PS0091998",
-//            "PS0092959",
-//            "PS0093230",
-//            "PS0091848",
-//            "PS0092377",
-//            "PS0092637"
-//        };
         Lechero l = new Lechero();
         int opcion = -1;
         while (opcion != OPCION_SALIR) {
@@ -268,7 +232,7 @@ public class Lechero {
                     + "Introduzca " + OPCION_REGISTRAR_ENTREGA + " para registrar entrega\n"
                     + "Introduzca " + OPCION_MOSTRAR_PRODUCTORES + " para mostrar productores\n"
                     + "Introduzca " + OPCION_MOSTRAR_CANTIDAD_BOTELLAS_X_ENTREGA + " para mostrar la cantidad de botellas entregadas por productor\n"
-                    + "Introduzca " + OPCION_AJUSTAR_PGBE + " para ajustar el promedio global histórico de botellas entregadas (PGBE) por productor\n"
+                    + "Introduzca " + OPCION_AJUSTAR_PGBE + " para ajustar el promedio global histÃ³rico de botellas entregadas (PGBE) por productor\n"
                     + "Introduzca " + OPCION_MOSTRAR_SI_PROMEDIO_MAYOR_PGBE + " para mostrar si el promedio de botellas entregadas es mayor que el PGBE\n"
                     + "Introduzca " + OPCION_MOSTRAR_CAMBIO_PORCENTUAL_LINEAL + " para mostrar el cambio porcentual lineal de un productor\n"
                     + "Introduzca " + OPCION_MOSTRAR_CAMBIO_PORCENTUAL_LINEAL_TODOS + " para mostrar el cambio porcentual lineal de todos los productores\n"
@@ -332,7 +296,7 @@ public class Lechero {
                 try {
                     System.out.println("Intetroduzca el nombre del nuevo productor");
                     p.setNombre(br.readLine());
-                    opcion = readOpcion("Está bien el nombre : " + p.getNombre() + "?\n"
+                    opcion = readOpcion("EstÃ¡ bien el nombre : " + p.getNombre() + "?\n"
                             + "Introduce 1 para confirmar el nombre\n"
                             + "Introduce 2 para cambiarlo\n",
                             1, 2);
@@ -343,7 +307,7 @@ public class Lechero {
             productores.put(p.getId(), p);
             System.out.println("Productor registrado");
         } else {
-            System.out.println("No se puede registrar mas productores, se llegó al limite maximo de " + MAX_CANTIDAD_PRODUCTORES);
+            System.out.println("No se puede registrar mas productores, se llegÃ³ al limite maximo de " + MAX_CANTIDAD_PRODUCTORES);
         }
     }
 
@@ -376,10 +340,10 @@ public class Lechero {
     }
 
     /**
-     * Muestra a los productores que están registrados
+     * Muestra a los productores que estÃ¡n registrados
      */
     public void mostrarProductores() {
-        System.out.println("A continuación los productores registrados");
+        System.out.println("A continuaciÃ³n los productores registrados");
         productores.forEach((k, v) -> {
             System.out.println(k + ": " + v.getNombre() + "\tentregas: " + v.getCantidadEntregas());
         });
@@ -403,7 +367,7 @@ public class Lechero {
         do {
             ioError = false;
             try {
-                System.out.println("Introduzca el nuevo valor del promedio globla histórico de botellas entregadas por productor");
+                System.out.println("Introduzca el nuevo valor del promedio globla histÃ³rico de botellas entregadas por productor");
                 int pgbe = Integer.parseInt(br.readLine());
                 actualizarPromedioGlobalHistoricoDeBotellasEntregadas(pgbe);
                 System.out.println("PGBE ajustado");
@@ -436,7 +400,7 @@ public class Lechero {
      */
     public void mostrarCambioPorcentualLinealTotal() {
         Map<Integer, Double> cambios = getCambioPorcentualProductores();
-        System.out.println("A continuación el cambio porcentual de todos productores");
+        System.out.println("A continuaciÃ³n el cambio porcentual de todos productores");
         cambios.forEach((k, v) -> {
             System.out.println("id: " + k + "\t" + "Productor: " + productores.get(k).getNombre() + "\tcambio porcentual lineal: " + v);
         });

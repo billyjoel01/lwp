@@ -1,9 +1,9 @@
 https://www.lawebdelprogramador.com/foros/Java/1676196-ayuda-con-un-ejercicio.html#last
 
-En esta ocaciÛn se trata de todo un proyecto (por lo extenso)
+En esta ocaci√≥n se trata de todo un proyecto (por lo extenso)
 Se trata de operaciones con base de datos
 
-<b>El enunciado</b><br>
+<h1>El enunciado</h1><br>
 1. Crear Base Datos, llamada Taller en JDB (Derby).
 2. Crear tabla Vendedor dentro de base de datos Taller
 Tabla Vendedor:
@@ -26,7 +26,7 @@ conectarse a la base de datos Taller.
 
 En la clase Vendedor debe implementar los metodos:
 a. public void leerDatos(): que debe leer los datos del vendedor por teclado,
-adem·s debe validar que todos los datos not null hayan sido ingresados..
+adem√°s debe validar que todos los datos not null hayan sido ingresados..
 .
 b. private int insertarDatos(rut,nombre, apellidopaterno, apellidomaterno
 sueldobase): que debe permitir insertar los datos de un vendedor en la
@@ -37,68 +37,69 @@ c. private void buscarDatos(String rut): que debe permitir buscar en la base
 de datos y deplegarlos en pantalla.
 
 d. private int eliminarDatos(rut,): que debe permitir eliminar los del
-vendedor cuyo rut coincida con el dado como par·metro.
+vendedor cuyo rut coincida con el dado como par√°metro.
 
 e. public void buscarVendedor(): debe pedir que el usuario ingrese un rut a
 buscar, luego debe validar que el rut del Vendedor haya sido ingresados, e
-invocar la mÈtodo buscarDatos(rut), y si existen datos mostrar los datos en
-detalle despleg·ndolos en pantalla
+invocar la m√©todo buscarDatos(rut), y si existen datos mostrar los datos en
+detalle despleg√°ndolos en pantalla
 En caso contario debe indicar que no existen datos asociados al rut
 ingresado.
 
 f. public void agregarVendedor(): debe pedir que el usuario ingrese primero
 un rut luego de validar que el rut no exista en la base de datos, si no existe
-debe pedir leer el resto de los datos invocando al mÈtodo leerDatos() y luego
-insertarlos en la tabla vendedor invocando al mÈtodo
+debe pedir leer el resto de los datos invocando al m√©todo leerDatos() y luego
+insertarlos en la tabla vendedor invocando al m√©todo
 insertarDatos(rut,nombre,apepat,apemat,sueldo.
 
 g. pubic void eliminarVendedor() , primero debe pedir que el usuario ingrese el
 rut del vendedor a liminar, luego debe validar el rut del Vendedor haya sido
 ingresados.
-DespuÈs debe buscar los datos del Vendedor por rut y desplegarlos en
-pantalla y luego preguntar est· seguro de querer borrar los datos del rut
+Despu√©s debe buscar los datos del Vendedor por rut y desplegarlos en
+pantalla y luego preguntar est√° seguro de querer borrar los datos del rut
 desplegado, si la respuesta es afirmativa debe borrar los datos de la tabla
-debe indicar el resultado de esta acciÛn al usuario, usando el mÈtodo
+debe indicar el resultado de esta acci√≥n al usuario, usando el m√©todo
 eliminarDatos(rut).
 En caso que el rut no exista en la base de datos debe desplegar un mensaje
-indic·ndolo.
+indic√°ndolo.
 
 h. pubic void listarVendedores(), debe listar todos los vendedores existentes en
 una lista tabalulada.
 
 
 
-4. Crear AplicaciÛn Java de consola llamada MantenedorVendedorApp
-Cree una aplicaciÛn en Java en modo consola y conceptos de (FactorizaciÛn
-y reutilizaciÛn de CÛdigo y OrientaciÛn al Objeto);
-La clase principal debe desplegar un men˙ con las siguientes opciones:
+4. Crear Aplicaci√≥n Java de consola llamada MantenedorVendedorApp
+Cree una aplicaci√≥n en Java en modo consola y conceptos de (Factorizaci√≥n
+y reutilizaci√≥n de C√≥digo y Orientaci√≥n al Objeto);
+La clase principal debe desplegar un men√∫ con las siguientes opciones:
 ? Agregar Vendedor
 ? Buscar Vendedor x Rut,
 ? Eliminar Vendedor
 ? Listar Todos los Vendedores
-Y permitir a travÈs de un objetoVendedor del Tipo Vendedor, realizar las operaciones
-seleccionadas mediante men˙.
+Y permitir a trav√©s de un objetoVendedor del Tipo Vendedor, realizar las operaciones
+seleccionadas mediante men√∫.
 
 
-<b>La soluciÛn</b><br>
-El proyecto est· hecho en Netbeans. 
-Se cargÛ el driver de Java DB.
+<h1>La soluci√≥n</h1><br>
+El proyecto est√° hecho en Netbeans. 
+Se carg√≥ el driver de Java DB.
 Para que esto funcione primero debes crear la base de datos. Yo le puse Taller, pero le puedes poner nombre que quieras solo que en caso de poner otro nombre entonces modificar la variable CATALOG que se encuentra en la clase utils.MyConnection
 Cuando crees la base de datos recuerda crearla con las siguientes credenciales
 usuario: taller_user
 password: taller_password
 En caso que crees la base de datos con otras credenciales puedes modificarlas en la clase utils.MyConnection en las variables USER y PASSWORD
-Para crear la tabla Vendedor puedes hacerlo siguiendo las indicaciones del enunciado; TambiÈn puedes ejecutar la clase utils.CreateTableVendedor;
-Otra alternativa serÌa ejecutar el comando a nivel de sql:
-CREATE TABLE vendedor (
-id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
-created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-rut varchar(10) NOT NULL,
-nombre varchar(20) NOT NULL,
-apellidoPaterno varchar(25) NOT NULL,
-apellidoMaterno varchar(35) DEFAULT NULL,
-sueldoBase int NOT NULL,
-PRIMARY KEY (rut)
-);
+Para crear la tabla Vendedor puedes hacerlo siguiendo las indicaciones del enunciado; Tambi√©n puedes ejecutar la clase utils.CreateTableVendedor;
+Otra alternativa ser√≠a ejecutar el comando a nivel de sql:
+
+CREATE TABLE vendedor (<br>
+id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),<br>
+created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,<br>
+rut varchar(10) NOT NULL,<br>
+nombre varchar(20) NOT NULL,<br>
+apellidoPaterno varchar(25) NOT NULL,<br>
+apellidoMaterno varchar(35) DEFAULT NULL,<br>
+sueldoBase int NOT NULL,<br>
+PRIMARY KEY (rut)<br>
+);<br>
 
 La clase principal del proyecto es MantenedorVendedorApp

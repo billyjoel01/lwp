@@ -205,11 +205,13 @@ public class JuanProyectoFinal {
         System.out.println("\n----------------------------------------------------");
 
         //Creamos un bucle para asignar nuevas antenas. 
-        //Este proceso se repetira mientras la matriz 
+        //Este proceso se repetira mientras la matriz se encuentre sin cobertura total
         while (isSinCoberturaTotal(matriz)) {
+            //Obtenemos una lista de antenas que le darían cobertura a puntos 
+            //sin cobertura dentro de la matriz
             Antena[] antenas = getAntenasIdeales(matriz, L);
-            //Evaluamos cual es la antena con mayor puntos sin cobertura disponibles para setearla
             if (antenas.length > 0) {
+                //Evaluamos cual es la antena con mayor puntos sin cobertura disponibles para setearla
                 Antena mayor = antenas[0];
                 for (int i = 1; i < antenas.length; i++) {
                     if (antenas[i].getPuntosCobertura() > mayor.getPuntosCobertura()) {
@@ -219,10 +221,12 @@ public class JuanProyectoFinal {
                 matriz[mayor.getF()][mayor.getC()] = "2";
                 setearCoberturaAntena(matriz, mayor.getF(), mayor.getC(), L);
             }
+            //Seteada la nueva antena con mayor puntos sin cobertura procedemos a mostrar la matriz
             mostrarMatriz(matriz);
             System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||\n");
+            //El proceso se repetirá hasta que no quede puntos sin cobertura dentro de la matriz
         }
-
+        //Para terminar buscamos dentro de la matriz las antenas sugeridas por el programa
         Antena[] antenasNuevasColocar = getAntenasSugerias(matriz);
         System.out.println("Numero de antenas nuevas a colocar: " + antenasNuevasColocar.length);
         for (int i = 0; i < antenasNuevasColocar.length; i++) {

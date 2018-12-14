@@ -114,9 +114,12 @@ public class JuanProyectoFinal {
      */
     public static Antena setTotalPuntosSinCobertura(String[][] matriz, Antena antena, int L) {
         int c_min = antena.getC() - radioCobertura(L) < 0 ? 0 : antena.getC() - radioCobertura(L);
-        int c_max = c_min + L - 1 > matriz[0].length - 1 ? matriz[0].length - 1 : c_min + L - 1;
+//        int c_max = c_min + L - 1 > matriz[0].length - 1 ? matriz[0].length - 1 : c_min + L - 1;
+        int c_max = antena.getC() + radioCobertura(L) > matriz[0].length - 1 ? matriz[0].length - 1 : antena.getC() + radioCobertura(L);
         int f_min = antena.getF() - radioCobertura(L) < 0 ? 0 : antena.getF() - radioCobertura(L);
-        int f_max = f_min + L - 1 > matriz.length - 1 ? matriz.length - 1 : f_min + L - 1;
+//        int f_max = f_min + L - 1 > matriz.length - 1 ? matriz.length - 1 : f_min + L - 1;
+        int f_max = antena.getF() + radioCobertura(L) > matriz.length - 1 ? matriz.length - 1 : antena.getF() + radioCobertura(L);
+
         int contador = 0;
         for (int i = f_min; i <= f_max; i++) {
             for (int j = c_min; j <= c_max; j++) {
@@ -182,9 +185,10 @@ public class JuanProyectoFinal {
         //Seteamos las antenas existentes
         Antena[] antenasExistentes = new Antena[A];
         for (int i = 0; i < A; i++) {
-            antenasExistentes[i] = new Antena();
-            antenasExistentes[i].setF(leerEnteroConRango("Fila de la antena " + (i + 1) + ": ", 1, M - 1));
-            antenasExistentes[i].setC(leerEnteroConRango("Columna de la antena " + (i + 1) + ": ", 1, N - 1));
+            antenasExistentes[i] = new Antena(
+                    leerEnteroConRango("Fila de la antena " + (i + 1) + ": ", 1, M - 1),
+                    leerEnteroConRango("Columna de la antena " + (i + 1) + ": ", 1, N - 1)
+            );
         }
         //Inicializamos la matriz
         String[][] matriz = new String[M][N];
@@ -209,7 +213,8 @@ public class JuanProyectoFinal {
         while (isSinCoberturaTotal(matriz)) {
             //Obtenemos una lista de antenas que le darían cobertura a puntos 
             //sin cobertura dentro de la matriz
-            Antena[] antenas = getAntenasIdeales(matriz, L);
+//            Antena[] antenas = getAntenasIdeales(matriz, L);
+            Antena[] antenas = getPotencialesAntenas(matriz, L);
             if (antenas.length > 0) {
                 //Evaluamos cual es la antena con mayor puntos sin cobertura disponibles para setearla
                 Antena mayor = antenas[0];
@@ -232,5 +237,30 @@ public class JuanProyectoFinal {
         for (int i = 0; i < antenasNuevasColocar.length; i++) {
             System.out.println("Coordenadas antena nueva " + (i + 1) + ": " + antenasNuevasColocar[i].getF() + ", " + antenasNuevasColocar[i].getC());
         }
+    }
+
+    /**
+     * Evalúa cada punto de la matriz como una posible antena
+     * @param matriz
+     * @param L
+     * @return 
+     */
+    public static Antena[] getPotencialesAntenas(String[][] matriz, int L) {
+        List<Antena> antenas = new ArrayList();
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                if (matriz[i][j].equals("_")) {
+                    Antena antena = new Antena(i, j);
+                    setTotalPuntosSinCobertura(matriz, antena, L);
+                    if (antena.getPuntosCobertura() > 0) {
+                        antenas.add(antena);
+                    }
+                }
+
+            }
+        }
+        Antena[] a = new Antena[antenas.size()];
+        antenas.toArray(a);
+        return a;
     }
 }

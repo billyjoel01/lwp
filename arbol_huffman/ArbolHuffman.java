@@ -16,9 +16,13 @@ import java.util.Map;
  */
 public class ArbolHuffman {
 
-    public static final String LOREM_IPSUS_PATH = "D:\\descargas\\loremIpsus.txt";
-
-    public static String loadArchivo() {
+    /**
+     * Metodo utilizado para cargar el archivo Lorem ipsus
+     *
+     * @param path ubicación del archivo que tiene texto a codificar
+     * @return
+     */
+    public static String loadArchivo(String path) {
         File archivo;
         FileReader fr = null;
         BufferedReader br;
@@ -26,7 +30,7 @@ public class ArbolHuffman {
         try {
             // Apertura del fichero y creacion de BufferedReader para poder
             // hacer una lectura comoda (disponer del metodo readLine()).
-            archivo = new File(LOREM_IPSUS_PATH);
+            archivo = new File(path);
             if (archivo.exists()) {
                 fr = new FileReader(archivo);
                 br = new BufferedReader(fr);
@@ -217,9 +221,13 @@ public class ArbolHuffman {
     }
 
     public static void main(String[] args) {
-        String s = loadArchivo();
-//        String s = "LAPTOP";
-        Map<Character, Simbolo> map = getMapaCaracteresFrecuencias(s);
+        //Primero cargamos el archivo que tiene la frase que queremos codificar
+        //String frase = loadArchivo("D:\\descargas\\loremIpsus.txt");
+        //Si no tienemos el archivo con la frase a codificar entonces podemos 
+        //comentar la declaración de la variable frase que está arriba y 
+        //descomentar la variable frase que está abajo
+        String frase = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed.";
+        Map<Character, Simbolo> map = getMapaCaracteresFrecuencias(frase);
         Simbolo[] simbolos = getSimbolosOrdenados(map);
 
 //        System.out.println("\nSimbolods ordenados: ");
@@ -241,14 +249,12 @@ public class ArbolHuffman {
         });
 
         String codigoHuffman = "";
-        for (int i = 0; i < s.length(); i++) {
-            codigoHuffman += map.get(s.charAt(i)).getCodificacion();
+        for (int i = 0; i < frase.length(); i++) {
+            codigoHuffman += map.get(frase.charAt(i)).getCodificacion();
         }
 
-        System.out.println("frase: " + s);
+        System.out.println("frase: " + frase);
         System.out.println("Código Huffman: " + codigoHuffman);
         System.out.println("Decodificado: " + decodificar(codigoHuffman, diccionario));
-
     }
-
 }

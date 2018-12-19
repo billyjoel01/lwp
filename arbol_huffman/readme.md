@@ -36,3 +36,5 @@ Si no relleno con estos ceros como podría diferencia de una <b>m</b> de una <b>
 La clase principal es <a href="https://github.com/billyjoel01/lwp/blob/master/arbol_huffman/ArbolHuffman.java">ArbolHuffman.java</a> En ella he modulado la lógica del programa para que sea mas entendible lo que está pasando.
 La clase <a href="https://github.com/billyjoel01/lwp/blob/master/arbol_huffman/Simbolo.java">Simbolo.java</a> representa cada caracter de la frase, además de contar con las propiedades frecuencia y codificación.
 La clase <a href="https://github.com/billyjoel01/lwp/blob/master/arbol_huffman/Nodo.java">Nodo.java</a> representa un nodo del arbol binario
+<br>
+Como uno de los requerimientos es cargar el contenido de un archivo y codificarlo, en caso de no tener el contenido del archivo entonces queda la asignación de la variable frase que al final será codificada.

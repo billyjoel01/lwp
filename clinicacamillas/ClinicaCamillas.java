@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class ClinicaCamillas {
 
-    public static final int CANTIDAD_CAMILLAS = 20;
+    public static final int CANTIDAD_CAMILLAS = 10;
     public static final int OPCION_INICIALIZAR_ESTADO = 1;
     public static final int OPCION_CONSULTAR_CAMILLA = 2;
     public static final int OPCION_REGISTRAR_PACIENTE = 3;
@@ -139,12 +139,25 @@ public class ClinicaCamillas {
     }
 
     /**
+     * Imprime las camillas ocupadas
+     */
+    public static void mostrarCamillasOcupadas() {
+        String s = "";
+        for (Integer k : camillas.keySet()) {
+            s += !camillas.get(k).isDisponible() ? k + ", " : "";
+        }
+        s = s.substring(0, s.length() - 2);
+        System.out.println("Camillas ocupadas: " + s);
+    }
+
+    /**
      * Opción consultar camilla
      */
     public static void consultarCamilla() {
         System.out.println("Opcion consultar camillas");
         mostrarCamillasDisponibles();
-        if (leer("Introduzca 1 para consultar una camilla").equals("1")) {
+        mostrarCamillasOcupadas();
+        if (leer("Introduzca 1 para consultar una camilla: ").equals("1")) {
             int id = leerInteger("Introduzca el id de la camilla a consultar: ");
             if (id < 1 || id > CANTIDAD_CAMILLAS) {
                 System.out.println("Camilla fuera de rango");
@@ -184,12 +197,13 @@ public class ClinicaCamillas {
      */
     public static void darSalida() {
         System.out.println("Opcion dar salida");
+        mostrarCamillasOcupadas();
         int id = leerInteger("Introduzca la camilla del paciente: ");
         if (id > 0 && id <= CANTIDAD_CAMILLAS) {
             if (!isCamillaDisponible(id)) {
                 Paciente p = camillas.get(id).getPaciente();
                 System.out.println("Se le dará salida al paciente " + p.getNombre()
-                        + "\ncon cedula: " + p.getCedula());
+                        + "\ncon cedula: " + p.getCedula() + "\n\n");
                 camillas.get(id).setPaciente(null);
             } else {
                 System.err.println("Esa camilla no tiene paciente");

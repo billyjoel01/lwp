@@ -20,7 +20,7 @@ Se crean 2 beans
 
 <h2>La clase principal</h2>
 <p>
-La clase principal de esta solución es <b>ClinicaCamilla</b>. En esta clase se hace uso de <code>java.util.Map</code> para 
+La clase principal de esta solución es <b><a href="https://github.com/billyjoel01/lwp/blob/master/clinicacamillas/ClinicaCamillas.java">ClinicaCamilla</a></b>. En esta clase se hace uso de <code>java.util.Map</code> para 
 identificar las camillas y utilizar las propiedades de éstas
 </p>
 

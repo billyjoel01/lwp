@@ -1,0 +1,200 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author billy.johnson
+ */
+public class ElCucoAlbert {
+//    /**
+//     * Problema 1
+//     * @param args 
+//     */
+//    public static void main(String [] args){
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Introduzca cuanto es su sueldo: ");
+//        double sueldo = sc.nextDouble();
+//        System.out.println(sueldo > 3000 ? "Debe pagar impuestos" : "No paga impuestos");
+//        
+//    }
+////////////////////////////////////////////////////////////////////////////////
+//    /**
+//     * Problema 2
+//     * @param args 
+//     */
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Ingrese un numero: ");
+//        double a = sc.nextDouble();
+//        System.out.print("Ingrese otro numero: ");
+//        double b = sc.nextDouble();
+//        double max, min;
+//        if (a > b) {
+//            max = a;
+//            min = b;
+//        } else {
+//            max = b;
+//            min = a;
+//        }
+//        System.out.println(a == b ? ("Los numeros son iguales") : ("El número " + max + " es mayor que " + min));
+//    }
+////////////////////////////////////////////////////////////////////////////////
+//    /**
+//     * Problema 3
+//     *
+//     * @param args
+//     */
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Ingrese un numero: ");
+//        double a = sc.nextDouble();
+//        System.out.print("Ingrese otro numero: ");
+//        double b = sc.nextDouble();
+//        if (a > b) {
+//            System.out.println("La suma de " + a + " + " + b + " = " + (a + b)
+//                    + "\nLa resta de " + a + " - " + b + " = " + (a - b)
+//            );
+//        } else {
+//            System.out.println("La multiplicación de " + a + " X " + b + " = " + (a * b)
+//                    + "\nLa resta de " + b + " / " + a + " = " + (b / a)
+//            );
+//        }
+//    }
+////////////////////////////////////////////////////////////////////////////////
+//    /**
+//     * Problema 4
+//     *
+//     * @param args
+//     */
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        double totalNotas = 0;
+//        for (int i = 1; i <= 3; i++) {
+//            System.out.print("Introduzca la nota #" + i + ": ");
+//            totalNotas += sc.nextDouble();
+//        }
+//        double promedio = totalNotas / 3;
+//        System.out.println("El promedio es " + promedio + (promedio >= 7 ? "´´Promocionado´´" : ""));
+//    }
+////////////////////////////////////////////////////////////////////////////////
+//    /**
+//     * Problema 5
+//     *
+//     * @param args
+//     */
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        double totalNotas = 0;
+//        for (int i = 1; i <= 3; i++) {
+//            System.out.print("Introduzca la nota #" + i + ": ");
+//            totalNotas += sc.nextDouble();
+//        }
+//        double promedio = totalNotas / 3;
+//        System.out.println("El promedio es " + promedio + (promedio >= 7 ? "´´Promocionado´´" : (promedio < 7 && promedio >= 4 ? "´´Regular´´" : "´´Reprobado´´")));
+//    }
+////////////////////////////////////////////////////////////////////////////////
+//    /*
+//     * Problema 6
+//     *
+//     * @param args
+//     */
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        int max = 0, n;
+//        for (int i = 1; i <= 3; i++) {
+//            System.out.print("Introduzca el número #" + i + ": ");
+//            if (i == 1) {
+//                max = sc.nextInt();
+//            } else {
+//                n = sc.nextInt();
+//                if (max < n) {
+//                    max = n;
+//                }
+//            }
+//        }
+//        System.out.println("El numero mayor es: " + max);
+//    }
+////////////////////////////////////////////////////////////////////////////////
+//    /*
+//     * Problema 7
+//     *
+//     * @param args
+//     */
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Ingrese un valor entero: ");
+//        Integer n = null;
+//        String s = sc.nextLine();
+//        try {
+//            n = Integer.parseInt(s);
+//        } catch (NumberFormatException ex) {}
+//        System.out.println("El valor es " + (n == null ? "Nulo" : (n > 0 ? "Positivo" : "Negativo")));
+//    }
+////////////////////////////////////////////////////////////////////////////////
+//    /*
+//     * Problema 7
+//     *
+//     * @param args
+//     */
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Ingrese un valor entero: ");
+//        Integer n = null;
+//        String s = sc.nextLine();
+//        try {
+//            n = Integer.parseInt(s);
+//        } catch (NumberFormatException ex) {}
+//        System.out.println("El valor es " + (n == null ? "Nulo" : (n > 0 ? "Positivo" : "Negativo")));
+//    }
+////////////////////////////////////////////////////////////////////////////////
+//    /*
+//     * Problema 8
+//     *
+//     * @param args
+//     */
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("cantidad total de preguntas que se le realizaron: ");
+//        int preguntas = sc.nextInt();
+//        System.out.print("cantidad de preguntas que contestó correctamente: ");
+//        double correctas = sc.nextDouble();
+//        double porcentaje = correctas / preguntas;
+//        if (porcentaje >= 0.9) {
+//            System.out.println("Nivel maximo");
+//        } else if (porcentaje < 0.9 && porcentaje >= 0.75) {
+//            System.out.println("Nivel medio");
+//        } else if (porcentaje < 0.75 && porcentaje >= 0.5) {
+//            System.out.println("Nivel regular");
+//        } else {
+//            System.out.println("Fuera de nivel");
+//        }
+//    }
+////////////////////////////////////////////////////////////////////////////////
+//    /*
+//     * Problema 9
+//     *
+//     * @param args
+//     */
+//    public static void main(String[] args) {
+//        for (int i = 1; i <= 100; i++) {
+//            System.out.print(i + (i + 1 <= 100 ? ", " : "\n"));
+//        }
+//    }
+////////////////////////////////////////////////////////////////////////////////
+//    /*
+//     * Problema 10
+//     *
+//     * @param args
+//     */
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Itroduzca un numero positivo: ");
+//        int n = sc.nextInt();
+//        if(n < 0){
+//            System.out.println("El valor es negativo");
+//        } else {
+//            for (int i = 1; i <= n; i++) {
+//                System.out.print(i + (i + 1 <= n ? ", " : "\n"));
+//            }
+//        }
+//    }
+}

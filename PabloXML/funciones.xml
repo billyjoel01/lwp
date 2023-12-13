@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<funciones serialization="custom">
+    <unserializable-parents/>
+    <list>
+        <default>
+            <size>2</size>
+        </default>
+        <int>10</int>
+        <simm.reglas.EdadMinima>
+            <edad>18</edad>
+        </simm.reglas.EdadMinima>
+        <simm.reglas.EdadMaxima>
+            <edad>64</edad>
+        </simm.reglas.EdadMaxima>
+    </list>
+</funciones>
